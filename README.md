@@ -17,7 +17,7 @@ sudo apt install git
    git clone https://github.com/zacnider/MonUltra.git
    cd MonUltra
    ```
-2. **Install Dependencies**
+2. **Install Dependencies** (Dependencies are installed. If the bot does not work, perform this step)
    ```bash
    npm install ethers@5 dotenv ethers ora readline cfonts prompts colors axios chalk figlet solc
    ```
