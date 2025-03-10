@@ -1,6 +1,16 @@
 # MonUltra
 
-## Installation
+## Installation 
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+#Install node.js and npm
+```bash
+sudo apt install nodejs npm
+```
+#Install git
+
+sudo apt install git
 
 1. **Clone the Repository**
    ```bash
