@@ -11,9 +11,9 @@
    ```bash
    npm install ethers@5 dotenv ethers ora readline cfonts prompts colors axios chalk figlet solc
    ```
-3. **Set Private Key**
+3. **Set Private Keys**
    ```bash
-   Let's write private keys in the .env file
+   nano .env  
    ```
 4. **Create and Use Screen**
    ```bash
