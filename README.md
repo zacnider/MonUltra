@@ -27,8 +27,14 @@ sudo apt install git
    ```
 4. **Create and Use Screen**
    ```bash
-   screen -R monad
+   screen -S mon
    ```
 5. **Run the Application**
    ```bash
    node main.js
+   ```
+**To keep the bot running in the background, press Ctrl + A, then D.)
+To access the running bot 
+ ```bash
+  screen -R mon
+ ```
