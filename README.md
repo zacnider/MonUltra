@@ -9,9 +9,9 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install nodejs npm
 ```
 #Install git
-
+```bash
 sudo apt install git
-
+```
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/zacnider/MonUltra.git
