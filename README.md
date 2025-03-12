@@ -17,19 +17,15 @@ sudo apt install git
    git clone https://github.com/zacnider/MonUltra.git
    cd MonUltra
    ```
-2. **Install Dependencies** (Dependencies are installed. If the bot does not work, perform this step)
-   ```bash
-   npm install ethers@5 dotenv ethers ora readline cfonts prompts colors axios chalk figlet solc
-   ```
-3. **Set Private Keys**
+2. **Set Private Keys**
    ```bash
    nano .env  
    ```
-4. **Create and Use Screen**
+3. **Create and Use Screen**
    ```bash
    screen -S mon
    ```
-5. **Run the Application**
+4. **Run the Application**
    ```bash
    node main.js
    ```
@@ -38,3 +34,7 @@ To access the running bot
  ```bash
   screen -R mon
  ```
+*****Install Dependencies** (Dependencies are installed. If the bot does not work, perform this step)
+   ```bash
+   npm install ethers@5 dotenv ethers ora readline cfonts prompts colors axios chalk figlet solc
+   ```
