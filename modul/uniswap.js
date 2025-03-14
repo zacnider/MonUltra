@@ -56,6 +56,7 @@ const TOKEN_ADDRESSES = {
     "WETH ": "0x836047a99e11f376522b447bffb6e3495dd0637c",
     "MUK  ": "0x989d38aeed8408452f0273c7d4a17fef20878e62",
     "USDC ": "0xf817257fed379853cDe0fa4F97AB987181B1E5Ea",
+    "YAKI ": "0xfe140e1dce99be9f4f15d657cd9b7bf622270c50",
     "CHOG ": "0xE0590015A873bF326bd645c3E1266d4db41C4E6B"
 };
 
@@ -240,11 +241,6 @@ async function processWallet(provider, keyObj) {
 
         const monBalance = await getBalance(wallet);
         
-        // MON bakiyesi çok düşükse işlem yapma
-        if (monBalance.lt(ethers.utils.parseEther("0.001"))) {
-            console.log(`⚠️ MON balance too low for operations, skipping this wallet`.yellow);
-            return;
-        }
 
         // Rastgele 2-3 token seç
         const tokenEntries = Object.entries(TOKEN_ADDRESSES);
