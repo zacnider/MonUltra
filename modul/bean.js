@@ -206,7 +206,7 @@ async function processWallet(wallet) {
     }
 
     console.log(" ");
-    console.log(`🧿 All Token Reverse to ETH`.white);
+    console.log(`🧿 All Token Reverse to MON`.white);
     console.log(" ");
     
     for (const [tokenSymbol, tokenAddress] of Object.entries(TOKEN_ADDRESSES)) {
