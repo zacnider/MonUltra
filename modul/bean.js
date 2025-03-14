@@ -44,7 +44,6 @@ function getPrivateKeys() {
 }
 
 const RPC_URLS = [
-    "https://testnet-rpc.monorail.xyz",
     "https://testnet-rpc.monad.xyz",
     "https://monad-testnet.drpc.org"
 ];
