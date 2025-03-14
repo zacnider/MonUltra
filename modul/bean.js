@@ -190,9 +190,15 @@ async function processWallet(wallet) {
 
     await getBalance(wallet);
 
+    console.log(" ");
+    console.log(`🧿 Swap Tokens`.white);
+    console.log(" ");
+
+    // Normal token swapları
     for (const [tokenSymbol, tokenAddress] of Object.entries(TOKEN_ADDRESSES)) {
         const ethAmount = getRandomEthAmount();
         await swapEthForTokens(wallet, tokenAddress, ethAmount, tokenSymbol);
+        
         const delay = Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000;
         console.log(`⏳ Wait ${delay / 1000} seconds`.grey);
         console.log(` `);
@@ -200,7 +206,7 @@ async function processWallet(wallet) {
     }
 
     console.log(" ");
-    console.log(`🧿 All Token Reverse to MONAD`.white);
+    console.log(`🧿 All Token Reverse to ETH`.white);
     console.log(" ");
     
     for (const [tokenSymbol, tokenAddress] of Object.entries(TOKEN_ADDRESSES)) {
