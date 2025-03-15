@@ -12,16 +12,14 @@ const scripts = [
   { name: "Uniswap", path: "./modul/uniswap.js", description: "Uniswap üzerinde token swap işlemleri" },
   { name: "Rubic", path: "./modul/rubic.js", description: "Rubic swap işlemleri" },
   { name: "Bean", path: "./modul/bean.js", description: "Bean protokolü etkileşimleri" },
-  { name: "Bebop", path: "./modul/bebop.js", description: "Bebop DEX işlemleri" },
   { name: "İzumi", path: "./modul/izumi.js", description: "İzumi Finance işlemleri" },
   { name: "Kitsu", path: "./modul/kitsu.js", description: "Kitsu protokolü etkileşimleri" },
   { name: "Magma", path: "./modul/magma.js", description: "Magma DEX işlemleri" },
-  { name: "Monorail", path: "./modul/mono.js", description: "Monorail platformu etkileşimleri" },
   { name: "Taya", path: "./modul/taya.js", description: "Taya Swap işlemleri" },
   { name: "Deploy", path: "./modul/deploy.js", description: "Akıllı kontrat deployment işlemleri" },
 ];
 
-// Güzel başlık
+// Başlık
 console.log(colors.rainbow(figlet.textSync('Multi-Wallet Bot', {
   font: 'Standard',
   horizontalLayout: 'default',
@@ -42,7 +40,7 @@ function displayMenu() {
   console.log("\n" + "🔥 MODÜL LİSTESİ 🔥".brightYellow.bold);
   console.log("═".repeat(50).cyan);
 
-  // Modülleri güzel bir şekilde listele
+  // Modülleri  listele
   scripts.forEach((script, index) => {
     console.log(`${(index + 1).toString().padStart(2)} ${colors.green('➤')} ${script.name.padEnd(10).brightBlue} ${colors.gray('|')} ${script.description.gray}`);
   });
@@ -121,7 +119,7 @@ async function selectScripts() {
   } else if (input === 'loop' || input.startsWith('loop:')) {
     // Sonsuz rastgele döngü
     let loopCount = 1; // Döngü sayacı
-    let modulCount = 2; // Varsayılan modül sayısı
+    let modulCount = 3; // Varsayılan modül sayısı
     
     if (input.startsWith('loop:')) {
       modulCount = parseInt(input.split(':'));
