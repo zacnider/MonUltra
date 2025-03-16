@@ -13,7 +13,7 @@ const scripts = [
   { name: "Rubic", path: "./modul/rubic.js", description: "Rubic swap işlemleri" },
   { name: "Bean", path: "./modul/bean.js", description: "Bean protokolü etkileşimleri" },
   { name: "Izumi", path: "./modul/izumi.js", description: "Izumi Finance işlemleri" },
-  { name: "Kitsu", path: "./modul/kitsu.js", description: "Kitsu protokolü etkileşimleri" },
+  { name: "Kintsu", path: "./modul/kintsu.js", description: "Kintsu protokolü etkileşimleri" },
   { name: "Magma", path: "./modul/magma.js", description: "Magma DEX işlemleri" },
   { name: "Taya", path: "./modul/taya.js", description: "Taya Swap işlemleri" },
   { name: "Deploy", path: "./modul/deploy.js", description: "Akıllı kontrat deployment işlemleri" },
