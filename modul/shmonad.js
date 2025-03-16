@@ -61,7 +61,7 @@ class MonadTransaction {
                 value: ethers.utils.parseEther('0'),
                 data: '0x0c60e091',
                 gasPrice: await this.provider.getGasPrice(),
-                gasLimit: 77876
+                gasLimit: 200000
             });
 
             console.log(`✅ İşlem Gönderildi: ${tx.hash}`);
