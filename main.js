@@ -17,6 +17,7 @@ const scripts = [
   { name: "Magma", path: "./modul/magma.js", description: "Magma DEX işlemleri" },
   { name: "Taya", path: "./modul/taya.js", description: "Taya Swap işlemleri" },
   { name: "Deploy", path: "./modul/deploy.js", description: "Akıllı kontrat deployment işlemleri" },
+  { name: "ShMonad Frontrun", path: "./modul/shmonad.js", description: "ShMonad Frontrun işlemleri" },
 ];
 
 // Başlık
