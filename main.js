@@ -139,19 +139,21 @@ async function selectScripts() {
       initial: 0
     });
     
-    // Bekleme süresi (timer seçeneği için)
-    let waitTime = 5;
-    if (loopOptions.loopType === 'timer') {
-      const timeResponse = await prompts({
-        type: 'number',
-        name: 'seconds',
-        message: 'Her döngü arasında kaç saniye beklensin?',
-        initial: 5,
-        min: 1,
-        max: 3600
-      });
-      waitTime = timeResponse.seconds;
-    }
+// Bekleme süresi (timer seçeneği için)
+let waitTime = 5;
+if (loopOptions.loopType === 'timer') {
+  const timeResponse = await prompts({
+    type: 'number',
+    name: 'seconds',
+    message: 'Her döngü arasında kaç saniye beklensin? (1-3600 arası)',
+    initial: 5,
+    min: 1,
+    max: 3600,
+    validate: value => value >= 1 && value <= 3600 ? true : 'Lütfen 1 ile 3600 arasında bir değer girin'
+  });
+  
+  waitTime = timeResponse.seconds;
+}
     
     // Sonsuz döngü başlat
     await runInfiniteLoop(modulCount, loopCount, loopOptions.loopType, waitTime);
