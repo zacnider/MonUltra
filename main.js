@@ -18,6 +18,7 @@ const scripts = [
   { name: "Taya", path: "./modul/taya.js", description: "Taya Swap işlemleri" },
   { name: "Deploy", path: "./modul/deploy.js", description: "Akıllı kontrat deployment işlemleri" },
   { name: "ShMonad Frontrun", path: "./modul/shmonad.js", description: "ShMonad Frontrun işlemleri" },
+  { name: "Atlantis", path: "./modul/atlantis.js", description: "Atlantis Faucet ve Swap işlemleri" },
 ];
 
 // Başlık
