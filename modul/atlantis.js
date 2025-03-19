@@ -165,7 +165,7 @@ async function processWallet(provider, keyObj) {
 
 // Token mint etme fonksiyonu
 async function mintTokens(wallet) {
-    const mintContractAddress = "0xE87a971729D5C0696de97E37aaFe31c70F2DC814"; // Monorail contract
+    const mintContractAddress = "0xE87a971729D5C0696de97E37aaFe31c70F2DC814"; // Faucet contract
     const mintFunctionABI = [
         {
             "inputs": [
