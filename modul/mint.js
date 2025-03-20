@@ -6,7 +6,7 @@ const config = {
   rpcUrl: "https://testnet-rpc.monad.xyz",
   tokenId: 1,
   mintPrice: ethers.utils.parseEther("0.518"),
-  gasLimit: 300000, // Artırılmış gas limit
+  gasLimit: 500000, // Artırılmış gas limit
   priorityMultiplier: 1.2 // Gas fiyatı için %20 buffer
 };
 
