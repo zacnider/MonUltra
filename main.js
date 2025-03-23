@@ -19,6 +19,8 @@ const scripts = [
   { name: "Deploy", path: "./modul/deploy.js", description: "Akıllı kontrat deployment işlemleri" },
   { name: "ShMonad Frontrun", path: "./modul/shmonad.js", description: "ShMonad Frontrun işlemleri" },
   { name: "Atlantis", path: "./modul/atlantis.js", description: "Atlantis Faucet ve Swap işlemleri" },
+  { name: "Apr.io", path: "./modul/apriori.js", description: "Apr.io Stake-Unstake işlemleri" },
+  { name: "Bebop", path: "./modul/bebop.js", description: "Bebop Wrap işlemleri" },
 ];
 
 // Başlık
