@@ -10,13 +10,11 @@ const RPC_URL = "https://testnet-rpc.monad.xyz/";
 const EXPLORER_URL = "https://testnet.monadexplorer.com/tx";
 const WMON_CONTRACT = "0x760AfE86e5de5fa0Ee542fc7B7B713e1c5425701"; 
 
-// Private key'leri .env dosyasından al
-const privateKeys = [
-    process.env.PRIVATE_KEY_1,
-    process.env.PRIVATE_KEY_2,
-    process.env.PRIVATE_KEY_3,
-    process.env.PRIVATE_KEY_4
-].filter(key => key); // Boş olmayan private key'leri filtrele
+// Dinamik olarak tüm PRIVATE_KEY_* değerlerini al
+const privateKeys = Object.keys(process.env)
+    .filter(key => key.startsWith('PRIVATE_KEY_'))
+    .map(key => process.env[key])
+    .filter(key => key); // Boş olmayan private key'leri filtrele
 
 const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 
@@ -26,15 +24,20 @@ function getRandomAmount() {
     return ethers.utils.parseEther((Math.random() * (max - min) + min).toFixed(4));
 }
 
-function getRandomDelay(min = 1, max = 3) {
-    return Math.floor(Math.random() * (max * 60 * 1000 - min * 60 * 1000 + 1) + min * 60 * 1000);
+// Wrap ve unwrap arası 5-15 saniye
+function getShortRandomDelay() {
+    return Math.floor(Math.random() * (15000 - 5000 + 1) + 5000);
+}
+
+// Cüzdanlar arası 10-20 saniye
+function getWalletDelay() {
+    return Math.floor(Math.random() * (20000 - 10000 + 1) + 10000);
 }
 
 function formatTime(milliseconds) {
     const totalSeconds = Math.floor(milliseconds / 1000);
-    const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
-    return `${minutes} dakika ${seconds} saniye`;
+    return `${seconds} saniye`;
 }
 
 async function wrapMON(wallet, amount, walletIndex) {
@@ -84,16 +87,15 @@ async function runSwapCycleForWallet(privateKey, walletIndex, cycles = 1) {
 
         for (let i = 0; i < cycles; i++) {
             const randomAmount = getRandomAmount(); 
-            const randomDelay = getRandomDelay(); 
 
             await wrapMON(wallet, randomAmount, walletIndex);
-            await unwrapMON(wallet, randomAmount, walletIndex);
+            
+            // Wrap ve unwrap arası 5-15 saniye bekleme
+            const shortDelay = getShortRandomDelay();
+            console.log(`⏳ Wrap ve Unwrap Arası Bekleme: ${formatTime(shortDelay)}`.grey);
+            await new Promise(resolve => setTimeout(resolve, shortDelay));
 
-            if (i < cycles - 1) {
-                console.log(`⏳ [Cüzdan ${walletIndex + 1}] Sonraki İşlem İçin Bekleniyor`.grey);
-                console.log(`⏰ Bekleme Süresi: ${formatTime(randomDelay)}`.grey);
-                await new Promise(resolve => setTimeout(resolve, randomDelay)); 
-            }
+            await unwrapMON(wallet, randomAmount, walletIndex);
         }
         console.log(`✅ [Cüzdan ${walletIndex + 1}] Swap Döngüsü Tamamlandı`.green);
     } catch (error) {
@@ -102,13 +104,15 @@ async function runSwapCycleForWallet(privateKey, walletIndex, cycles = 1) {
 }
 
 async function runMultiWalletSwapCycles(cycles = 1) {
+    console.log(`🔍 Toplam ${privateKeys.length} Cüzdan Bulundu`.yellow);
+
     for (let i = 0; i < privateKeys.length; i++) {
         const privateKey = privateKeys[i];
         await runSwapCycleForWallet(privateKey, i, cycles);
         
         // Son cüzdandan sonra bekleme yapma
         if (i < privateKeys.length - 1) {
-            const walletDelay = getRandomDelay(0.2,0.3 ); // Cüzdanlar arası 10-20 saniye bekleme
+            const walletDelay = getWalletDelay(); // Cüzdanlar arası 10-20 saniye bekleme
             console.log(`⏳ Cüzdanlar Arası Bekleme: ${formatTime(walletDelay)}`.grey);
             await new Promise(resolve => setTimeout(resolve, walletDelay));
         }
