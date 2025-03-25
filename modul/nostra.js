@@ -190,7 +190,7 @@ async function processWallet(wallet, walletIndex) {
       // Rastgele bekleme
       await randomWait(walletIndex);
       
-      // %80 Withdraw
+      // %95 Withdraw
       const withdrawAmount = (parseFloat(updatedWMON) * CONFIG.WITHDRAW_PERCENTAGE / 100).toFixed(6);
       await withdrawFromTarget(wallet, withdrawAmount, walletIndex);
     }
