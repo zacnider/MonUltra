@@ -51,7 +51,7 @@ const WETH_ADDRESS = "0x760AfE86e5de5fa0Ee542fc7B7B713e1c5425701";
 const EXPLORER_URL = "https://testnet.monadexplorer.com/tx/";
 
 const TOKEN_ADDRESSES = {
-    "DAC  ": "0x0f0bdebf0f83cd1ee3974779bcb7315f9808c714",
+    "DAK  ": "0x0f0bdebf0f83cd1ee3974779bcb7315f9808c714",
     "USDT ": "0x88b8e2161dedc77ef4ab7585569d2415a1c1055d",
     "WETH ": "0x836047a99e11f376522b447bffb6e3495dd0637c",
     "MUK  ": "0x989d38aeed8408452f0273c7d4a17fef20878e62",
